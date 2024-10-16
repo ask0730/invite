@@ -1,80 +1,110 @@
-# invite
 <!DOCTYPE html>
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #e9ecef;
+            font-family: 'Fira Sans', sans-serif;
+            background-color: #1c2331;
             margin: 0;
             padding: 0;
         }
 
         .container {
             max-width: 600px;
-            margin: 40px auto;
-            background-color: #ffffff;
+            margin: auto;
+            background-color: #222831;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: box-shadow 0.3s ease;
         }
 
         .header {
-            background-color: #007bff;
+            background-image: linear-gradient(to bottom, #222831, #303f9f);
             padding: 20px;
             text-align: center;
             color: white;
         }
 
         .header img {
-            border-radius: 50px; /* 设置为固定的像素值 */
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
         }
 
         .header h2 {
-            margin: 10px 0;
+            margin: 0;
             font-size: 24px;
         }
 
         .body {
-            padding: 20px;
+            padding: 30px;
+            color: #e0e0e0;
         }
 
         .body p {
             font-size: 16px;
-            color: #333;
             line-height: 1.5;
         }
 
         .body strong {
-            color: #007bff;
+            color: #64b5f6;
         }
 
         .button {
             text-align: center;
-            margin: 30px 0;
+            margin: 40px 0;
         }
 
         .button a {
+            display: inline-block;
             font-size: 18px;
-            background-color: #28a745;
+            background-color: #64b5f6;
             color: #ffffff;
             padding: 10px 20px;
             text-decoration: none;
             border-radius: 5px;
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+            transition: background-color 0.3s ease;
+        }
+
+        .button a:hover {
+            background-color: #42a5f5;
         }
 
         .footer {
-            background-color: #f4f4f4;
+            background-color: #222831;
             padding: 10px;
             text-align: center;
+            color: #999;
         }
 
         .footer p {
             font-size: 12px;
-            color: #999;
+        }
+        
+        /* Tech icons */
+        .tech-icon {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background-image: url("https://example.com/tech-icon.png");
+            background-size: 100% 100%;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+
+        /* Code wrapping */
+        .code {
+            background-color: #303f9f;
+            color: #fff;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: monospace;
+            font-size: 14px;
         }
     </style>
 </head>
@@ -82,12 +112,12 @@
 <div class="container">
     <div class="header">
         <img src="https://via.placeholder.com/100" alt="社团Logo">
-        <h4>恭喜您加入信息学院微开发协会！</h4>
+        <h2>恭喜您加入信息学院微开发协会！</h2>
     </div>
     <div class="body">
         <p>亲爱的 <strong>{{.Name}}</strong>，</p>
-        <p>我们很高兴地通知您，经过面试筛选，您已经成功加入信息学院微开发协会，并被分配至 <strong>{{.Department}}</strong> 部门。</p>
-        <p>为了更好地开展部门工作，请您尽快加入以下QQ群，与我们一同前进：</p>
+        <p>我们很高兴地通知您，经过面试筛选，您已经成功加入信息学院微开发协会，并被分配至 <strong class="code">{{.Department}}</strong> 部门。</p>
+        <p>为了更好地开展部门工作，请您尽快加入以下QQ群，与我们一同前进：<span class="tech-icon"></span></p>
         <div class="button">
             <a href="#">{{.QQGroup}}</a>
         </div>
@@ -98,8 +128,8 @@
     <div class="footer">
         <p>&copy; 2024 信息学院微开发协会. 保留所有权利。</p>
         <p>
-            <a href="https://example.com" style="color: #007bff; text-decoration: none;">访问我们的官网</a> |
-            <a href="mailto:contact@association.com" style="color: #007bff; text-decoration: none;">联系我们</a>
+            <a href="https://example.com" style="color: #64b5f6; text-decoration: none;">访问我们的官网</a> |
+            <a href="mailto:contact@association.com" style="color: #64b5f6; text-decoration: none;">联系我们</a>
         </p>
     </div>
 </div>
