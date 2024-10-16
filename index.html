@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
-    <meta charset="UTF-8">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;700&display=swap" rel="stylesheet" />
     <style>
-          @font-face {
-        font-family: 'AaJianHaoTi';
-        src: url('/assets/fonts/AaJianHaoTi.woff2') format('woff2');
-        font-weight: normal;
-        font-style: normal;
-    }
+        @font-face {
+            font-family: "AaJianHaoTi";
+            src: url("/assets/fonts/AaJianHaoTi.woff2") format("woff2");
+            font-weight: normal;
+            font-style: normal;
+        }
+
         body {
-            font-family: 'Fira Sans', sans-serif;
+            font-family: "Fira Sans", sans-serif;
             background-color: #1c2331;
             margin: 0;
             padding: 0;
@@ -27,6 +29,28 @@
             transition: box-shadow 0.3s ease;
         }
 
+        @keyframes fadeInLetters {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+
+        .header h2 span {
+            display: inline-block;
+            animation: fadeInLetters 0.6s ease-in-out forwards;
+        }
+
+        .association-name span {
+            display: inline-block;
+            animation: fadeInLetters 0.7s ease-in-out forwards;
+        }
+
+
         .header {
             background-image: linear-gradient(to bottom, #222831, #303f9f);
             padding: 20px;
@@ -41,10 +65,19 @@
             margin-bottom: 20px;
         }
 
+        .welcome {
+            /* color: #64b5f6; */
+
+        }
+
+        .association-name {
+            font-size: 39px;
+            color: linear-gradient(to bottom, #222831, #303f9f);
+        }
+
         .header h2 {
-            font-family: 'AaJianHaoTi', sans-serif;
-            margin: 0;
-            font-size: 35px;
+            font-family: "AaJianHaoTi", sans-serif;
+            font-size: 32px;
         }
 
         .body {
@@ -92,7 +125,7 @@
         .footer p {
             font-size: 12px;
         }
-        
+
         .tech-icon {
             display: inline-block;
             width: 24px;
@@ -113,30 +146,45 @@
         }
     </style>
 </head>
+
 <body>
-<div class="container">
-    <div class="header">
-        <img src="https://via.placeholder.com/100" alt="社团Logo">
-        <h2>恭喜您加入信息学院微开发协会！</h2>
-    </div>
-    <div class="body">
-        <p>亲爱的 <strong>{{.Name}}</strong>，</p>
-        <p>我们很高兴地通知您，经过面试筛选，您已经成功加入信息学院微开发协会，并被分配至 <strong class="code">{{.Department}}</strong> 部门。</p>
-        <p>为了更好地开展部门工作，请您尽快加入以下QQ群，与我们一同前进：<span class="tech-icon"></span></p>
-        <div class="button">
-            <a href="#">{{.QQGroup}}</a>
+    <div class="container">
+        <div class="header">
+            <img src="https://via.placeholder.com/100" alt="社团Logo" />
+            <h2>
+                <div class="welcome"><span>恭喜您加入</span></div>
+
+                <span class="association-name"><span>信息学院微开发协会</span>
+
+            </h2>
         </div>
-        <p>期待在未来的日子里与您共同成长，迎接挑战，携手进步！</p>
-        <p>请保持邮箱畅通，我们会通过邮件发布重要通知。如有任何问题，欢迎随时联系部门负责人。</p>
-        <p style="text-align: right;">此致，<br>信息学院微开发协会</p>
+        <div class="body">
+            <p>亲爱的 <strong>{{.Name}}</strong>，</p>
+            <p>
+                我们很高兴地通知您，经过面试筛选，您已经成功加入信息学院微开发协会，并被分配至
+                <strong class="code">{{.Department}}</strong> 部门。
+            </p>
+            <p>
+                为了更好地开展部门工作，请您尽快加入以下QQ群，与我们一同前进：<span class="tech-icon"></span>
+            </p>
+            <div class="button">
+                <a href="#">{{.QQGroup}}</a>
+            </div>
+            <p>期待在未来的日子里与您共同成长，迎接挑战，携手进步！</p>
+            <p>
+                请保持邮箱畅通，我们会通过邮件发布重要通知。如有任何问题，欢迎随时联系部门负责人。
+            </p>
+            <p style="text-align: right">此致，<br />信息学院微开发协会</p>
+        </div>
+        <div class="footer">
+            <p>&copy; 2024 信息学院微开发协会. 保留所有权利。</p>
+            <p>
+                <a href="https://example.com" style="color: #64b5f6; text-decoration: none">访问官网</a>
+                |
+                <a href="mailto:contact@association.com" style="color: #64b5f6; text-decoration: none">联系我们</a>
+            </p>
+        </div>
     </div>
-    <div class="footer">
-        <p>&copy; 2024 信息学院微开发协会. 保留所有权利。</p>
-        <p>
-            <a href="https://example.com" style="color: #64b5f6; text-decoration: none;">访问我们的官网</a> |
-            <a href="mailto:contact@association.com" style="color: #64b5f6; text-decoration: none;">联系我们</a>
-        </p>
-    </div>
-</div>
 </body>
+
 </html>
