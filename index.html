@@ -2,189 +2,364 @@
 <html lang="zh">
 
 <head>
-    <meta charset="UTF-8" />
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;700&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <style>
-        @font-face {
-            font-family: "AaJianHaoTi";
-            src: url("/assets/fonts/AaJianHaoTi.woff2") format("woff2");
+         @font-face {
+            font-family: 'CKTKingKong';
+            src: url('fonts/CKTKingKong.woff2') format('woff2');
             font-weight: normal;
             font-style: normal;
         }
-
+        @font-face {
+    font-family: 'HuanZiKaTangShouShu';
+    src: url('fonts/HuanZiKaTangShouShu.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
         body {
-            font-family: "Fira Sans", sans-serif;
-            background-color: #1c2331;
+            font-family: 'HuanZiKaTangShouShu', sans-serif;            background-color: #0e0e10;
+            color: #d1d1d1;
             margin: 0;
             padding: 0;
+            position: relative;
+            animation: fadeIn 1.5s ease-out;
         }
 
-        .container {
-            max-width: 600px;
-            margin: auto;
-            background-color: #222831;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            transition: box-shadow 0.3s ease;
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
         }
 
-        @keyframes fadeInLetters {
-            0% {
+        @keyframes fadeIn {
+            from {
                 opacity: 0;
             }
 
-            100% {
+            to {
                 opacity: 1;
             }
         }
 
-
-        .header h2 span {
-            display: inline-block;
-            animation: fadeInLetters 0.6s ease-in-out forwards;
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: #1c1f26;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+            border: 1px solid #3a3d42;
+            transform: translateY(20px);
+            animation: slideUp 1.2s ease-out;
+            position: relative;
         }
 
-        .association-name span {
-            display: inline-block;
-            animation: fadeInLetters 0.7s ease-in-out forwards;
-        }
+        @keyframes slideUp {
+            from {
+                transform: translateY(40px);
+                opacity: 0;
+            }
 
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
 
         .header {
-            background-image: linear-gradient(to bottom, #222831, #303f9f);
-            padding: 20px;
+            background: linear-gradient(135deg, #00c6ff, #0072ff, #7f00ff);
+            padding: 30px;
             text-align: center;
             color: white;
+            transition: background-color 0.5s ease;
+            box-shadow: 0 4px 10px rgba(0, 200, 255, 0.4);
         }
 
         .header img {
             border-radius: 50%;
-            width: 100px;
-            height: 100px;
-            margin-bottom: 20px;
+            border: 3px solid #ffffff;
+            box-shadow: 0 0 20px rgba(0, 200, 255, 0.6);
+            transform: scale(1);
+            transition: transform 0.4s ease;
         }
 
-        .welcome {
-            /* color: #64b5f6; */
-
-        }
-
-        .association-name {
-            font-size: 39px;
-            color: linear-gradient(to bottom, #222831, #303f9f);
+        .header img:hover {
+            transform: scale(1.1);
         }
 
         .header h2 {
-            font-family: "AaJianHaoTi", sans-serif;
-            font-size: 32px;
+            font-family: 'CKTKingKong', sans-serif;
+            margin: 15px 0;
+            font-size: 28px;
+            font-weight: 700;
+            animation: textPop 1s ease;
+            text-shadow: 0 0 10px rgba(127, 0, 255, 0.8);
+        }
+
+        @keyframes textPop {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         .body {
-            padding: 30px;
-            color: #e0e0e0;
+            padding: 25px;
         }
 
         .body p {
-            font-size: 16px;
-            line-height: 1.5;
+            font-size: 18px;
+            color: #b0b0b0;
+            line-height: 1.8;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInText 1.2s ease forwards;
+        }
+
+        .body p:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .body p:nth-child(3) {
+            animation-delay: 1s;
+        }
+
+        .body p:nth-child(5) {
+            animation-delay: 1.5s;
+        }
+
+        .body p:nth-child(6) {
+            animation-delay: 2s;
+        }
+
+        .body p:nth-child(7) {
+            animation-delay: 2.5s;
+        }
+
+        .body p::before {
+            content: "\f0e0";
+            /* Font Awesome icon (info) */
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            margin-right: 8px;
+            color: #00ccff;
+        }
+
+        @keyframes fadeInText {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .body strong {
-            color: #64b5f6;
+            color: #00ccff;
+            text-shadow: 0 0 10px rgba(0, 204, 255, 0.5), 0 0 5px rgba(0, 204, 255, 0.8);
         }
 
         .button {
             text-align: center;
-            margin: 40px 0;
+            margin: 30px 0;
         }
 
         .button a {
-            display: inline-block;
-            font-size: 18px;
-            background-color: #64b5f6;
+            font-size: 20px;
+            background-color: #1e90ff;
             color: #ffffff;
-            padding: 10px 20px;
+            padding: 12px 24px;
             text-decoration: none;
-            border-radius: 5px;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
-            transition: background-color 0.3s ease;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(30, 144, 255, 0.4);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            text-shadow: 0 0 5px rgba(30, 144, 255, 0.8);
         }
 
         .button a:hover {
-            background-color: #42a5f5;
+            background-color: #007acc;
+            transform: scale(1.1);
         }
 
         .footer {
-            background-color: #222831;
-            padding: 10px;
+            background-color: #1c1f26;
+            padding: 15px;
             text-align: center;
-            color: #999;
+            transition: background-color 0.5s ease;
         }
 
         .footer p {
-            font-size: 12px;
-        }
-
-        .tech-icon {
-            display: inline-block;
-            width: 24px;
-            height: 24px;
-            background-image: url("https://example.com/tech-icon.png");
-            background-size: 100% 100%;
-            margin-right: 5px;
-            vertical-align: middle;
-        }
-
-        .code {
-            background-color: #303f9f;
-            color: #fff;
-            padding: 2px 4px;
-            border-radius: 3px;
-            font-family: monospace;
             font-size: 14px;
+            color: #828282;
+        }
+
+        .footer a {
+            color: #00ccff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            text-shadow: 0 0 5px rgba(0, 204, 255, 0.8);
+        }
+
+        .footer a:hover {
+            color: #66ffcc;
         }
     </style>
 </head>
 
 <body>
+    <div id="particles-js"></div>
     <div class="container">
         <div class="header">
-            <img src="https://via.placeholder.com/100" alt="社团Logo" />
-            <h2>
-                <div class="welcome"><span>恭喜您加入</span></div>
-
-                <span class="association-name"><span>信息学院微开发协会</span>
-
-            </h2>
+            <img src="https://via.placeholder.com/100" alt="社团Logo">
+            <h2>欢迎加入微开发协会</h2>
         </div>
         <div class="body">
             <p>亲爱的 <strong>{{.Name}}</strong>，</p>
-            <p>
-                我们很高兴地通知您，经过面试筛选，您已经成功加入信息学院微开发协会，并被分配至
-                <strong class="code">{{.Department}}</strong> 部门。
-            </p>
-            <p>
-                为了更好地开展部门工作，请您尽快加入以下QQ群，与我们一同前进：<span class="tech-icon"></span>
-            </p>
+            <p>我们很高兴通知您，您已成功加入信息学院微开发协会，并分配至 <strong>{{.Department}}</strong> 部门。</p>
+            <p>请尽快加入以下QQ群，与我们一同前进：</p>
             <div class="button">
                 <a href="#">{{.QQGroup}}</a>
             </div>
-            <p>期待在未来的日子里与您共同成长，迎接挑战，携手进步！</p>
-            <p>
-                请保持邮箱畅通，我们会通过邮件发布重要通知。如有任何问题，欢迎随时联系部门负责人。
-            </p>
-            <p style="text-align: right">此致，<br />信息学院微开发协会</p>
+            <p>期待与你共同成长，迎接挑战，携手进步！</p>
+            <p>保持邮箱畅通，我们会通过邮件发布重要通知。如有问题，请联系部门负责人。</p>
+            <p style="text-align: right;">此致，<br>微开发协会</p>
         </div>
         <div class="footer">
             <p>&copy; 2024 信息学院微开发协会. 保留所有权利。</p>
             <p>
-                <a href="https://example.com" style="color: #64b5f6; text-decoration: none">访问官网</a>
-                |
-                <a href="mailto:contact@association.com" style="color: #64b5f6; text-decoration: none">联系我们</a>
+                <a href="https://example.com">访问官网</a> |
+                <a href="mailto:contact@association.com">联系我们</a>
             </p>
         </div>
     </div>
+
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    },
+                    "image": {
+                        "src": "img/github.svg",
+                        "width": 100,
+                        "height": 100
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+
+    </script>
 </body>
 
 </html>
